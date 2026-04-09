@@ -1,186 +1,318 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>GreenMind</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenMind</title>
 
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-    body {
-      background: #0f172a;
-      color: #fff;
-      overflow-x: hidden;
-    }
+body {
+  background: #020617;
+  color: white;
+}
 
-    section {
-      padding: 80px 10%;
-    }
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  background: rgba(2, 6, 23, 0.6);
+  z-index: 1000;
+}
 
-    h1, h2 {
-      font-weight: 700;
-    }
+nav h2 {
+  color: #22c55e;
+}
 
-    p {
-      opacity: 0.8;
-      line-height: 1.6;
-    }
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  gap: 40px;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
+.hero-text {
+  max-width: 600px;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      max-width: 600px;
-    }
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
 
-    .hero span {
-      color: #22c55e;
-    }
+.hero span {
+  color: #22c55e;
+}
 
-    .btn {
-      background: #22c55e;
-      color: black;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: fit-content;
-      transition: 0.3s;
-    }
+.hero p {
+  margin-top: 20px;
+  opacity: 0.7;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+/* IMAGE PREMIUM */
+.hero-image {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+}
 
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+.hero-image img {
+  width: 420px;
+  border-radius: 25px;
+  display: block;
+  transition: 0.5s;
+}
 
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
+/* Glow atrás */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(34,197,94,0.4), transparent);
+  filter: blur(60px);
+  z-index: -1;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+/* Hover leve */
+.hero-image:hover img {
+  transform: scale(1.03);
+}
 
-    /* ANIMAÇÃO */
-    .hidden {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.6s ease;
-    }
+/* BUTTON */
+.btn {
+  margin-top: 30px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-    .show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* SECTIONS */
+section {
+  padding: 100px 10%;
+}
 
-    footer {
-      text-align: center;
-      padding: 40px;
-      opacity: 0.6;
-    }
-  </style>
+/* PROBLEMA */
+.problem {
+  text-align: center;
+}
+
+.problem h2 {
+  font-size: 2.5rem;
+}
+
+.problem p {
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.problem-card {
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(34,197,94,0.2);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.problem-card:hover {
+  transform: translateY(-8px);
+}
+
+.problem-card h3 {
+  margin-bottom: 10px;
+  color: #22c55e;
+}
+
+/* FORM */
+.form-box {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.options button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(34,197,94,0.3);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.options button.active {
+  background: #22c55e;
+  color: black;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 5px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero hidden">
+<nav>
+  <h2>GreenMind</h2>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
     <h1>
-      Tecnologia que cuida das suas plantas <span>por você</span>
+      Cultive plantas <span>sem esforço</span>.<br>
+      A tecnologia cuida do seu jardim.
     </h1>
     <p>
-      Automatize sua irrigação, economize água e tenha plantas saudáveis sem esforço.
+      Sensores inteligentes e IA mantendo suas plantas saudáveis automaticamente.
     </p>
-    <div class="btn">Quero conhecer</div>
-  </section>
+    <button class="btn" onclick="scrollToForm()">Responder Pesquisa</button>
+  </div>
 
-  <!-- PROBLEMA -->
-  <section class="hidden">
-    <h2>Você passa por isso?</h2>
-    <div class="grid">
-      <div class="card">Esquece de regar as plantas</div>
-      <div class="card">Desperdiça água sem perceber</div>
-      <div class="card">Falta tempo na rotina</div>
+  <div class="hero-image">
+    <img src="images/vaso.jpg" alt="Vaso inteligente GreenMind">
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <h2>O Problema</h2>
+  <p>Cuidar de plantas não deveria ser um trabalho em tempo integral</p>
+
+  <div class="problem-grid">
+
+    <div class="problem-card">
+      <h3>Falta de Tempo</h3>
+      <p>Rotina corrida faz você esquecer de cuidar das plantas.</p>
     </div>
-  </section>
 
-  <!-- SOLUÇÃO -->
-  <section class="hidden">
-    <h2>A solução: GreenMind</h2>
-    <p>
-      Um sistema inteligente que monitora sua planta e realiza a irrigação automaticamente no momento certo.
-    </p>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section class="hidden">
-    <h2>Como funciona</h2>
-    <div class="grid">
-      <div class="card">1. Sensores analisam o solo</div>
-      <div class="card">2. Sistema toma decisão</div>
-      <div class="card">3. Irrigação automática</div>
+    <div class="problem-card">
+      <h3>Plantas Morrendo</h3>
+      <p>Mesmo tentando, suas plantas não sobrevivem.</p>
     </div>
-  </section>
 
-  <!-- DIFERENCIAL -->
-  <section class="hidden">
-    <h2>Por que escolher?</h2>
-    <div class="grid">
-      <div class="card">Sustentável</div>
-      <div class="card">Automatizado</div>
-      <div class="card">Economia de água</div>
+    <div class="problem-card">
+      <h3>Falta de Conhecimento</h3>
+      <p>Você não sabe exatamente o que fazer em cada situação.</p>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="hidden">
-    <h2>Pronto para transformar seu cuidado com plantas?</h2>
-    <div class="btn">Entrar na lista</div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 GreenMind
-  </footer>
+<!-- FORM -->
+<section id="form-section">
+  <h2 style="text-align:center;">Precisamos da sua opinião</h2>
 
-  <!-- SCRIPT ANIMAÇÃO -->
-  <script>
-    const elements = document.querySelectorAll('.hidden');
+  <form class="form-box" action="https://formsubmit.co/contato.greenmind@gmail.com" method="POST">
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-        }
-      });
-    });
+    <input type="hidden" name="_subject" value="Nova resposta - GreenMind">
+    <input type="hidden" name="_captcha" value="false">
 
-    elements.forEach(el => observer.observe(el));
-  </script>
+    <div class="form-group">
+      <label>Dificuldade com plantas?</label>
+      <div class="options">
+        <button type="button" onclick="select(this,'dificuldade','Sim')">Sim</button>
+        <button type="button" onclick="select(this,'dificuldade','Às vezes')">Às vezes</button>
+        <button type="button" onclick="select(this,'dificuldade','Não')">Não</button>
+      </div>
+      <input type="hidden" name="dificuldade" required>
+    </div>
+
+    <div class="form-group">
+      <label>Usaria automação?</label>
+      <div class="options">
+        <button type="button" onclick="select(this,'interesse','Sim')">Sim</button>
+        <button type="button" onclick="select(this,'interesse','Talvez')">Talvez</button>
+        <button type="button" onclick="select(this,'interesse','Não')">Não</button>
+      </div>
+      <input type="hidden" name="interesse" required>
+    </div>
+
+    <div class="form-group">
+      <label>Quanto pagaria?</label>
+      <input type="text" name="preco" placeholder="Ex: R$15">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <button class="btn">Enviar</button>
+
+  </form>
+</section>
+
+<script>
+function select(btn, name, value){
+  const group = btn.parentElement;
+  group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  group.parentElement.querySelector('input').value = value;
+}
+
+function scrollToForm(){
+  document.getElementById("form-section").scrollIntoView({behavior: "smooth"});
+}
+</script>
 
 </body>
 </html>
